@@ -1,0 +1,9 @@
+# .NET Core build folders
+bin
+obj
+
+# Csharp project file
+*.csproj
+
+# VisualStudioCode
+.vscode
