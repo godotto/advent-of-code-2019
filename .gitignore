@@ -7,3 +7,6 @@ obj
 
 # VisualStudioCode
 .vscode
+
+# input files
+input.txt
