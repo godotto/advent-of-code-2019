@@ -6,7 +6,8 @@ namespace Day_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string input = System.IO.File.ReadAllText("input.txt");
+            string[] splittedInput = input.Split(',');
         }
     }
 }
