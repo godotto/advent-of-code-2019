@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_2
 {
@@ -15,10 +15,10 @@ namespace Day_2
             Console.WriteLine("Value at positon 0 after execution of Intcode: " + splittedInput[0]);
         }
 
-        static int Calculate(string operation, string first, string second)
+        static int Calculate(string opcode, string first, string second)
         {
-            if (operation == "1")
-                return Convert.ToInt32(first) + Convert.ToInt32(second);
+            if (opcode == "1")
+                return Convert.ToInt32(first) + Convert.ToInt32(second); 
             else
                 return Convert.ToInt32(first) * Convert.ToInt32(second);
         }
