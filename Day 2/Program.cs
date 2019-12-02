@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_2
 {
@@ -32,6 +32,25 @@ namespace Day_2
                 else
                     input[Convert.ToInt32(input[i + 3])] = Convert.ToString(Calculate(input[i], input[Convert.ToInt32(input[i + 1])], input[Convert.ToInt32(input[i + 2])])); // execute proper operation and change the right value
             }
+        }
+
+        static int FindProperInputs(string input, string soughtOutput)
+        {
+            for (var noun = 0; noun <= 99; noun++) // check all possible nouns
+            {
+                for (var verb = 0; verb <= 99; verb++) // check all possible verbs
+                {
+                    string[] splittedInput = input.Split(',');
+                    splittedInput[1] = Convert.ToString(noun);
+                    splittedInput[2] = Convert.ToString(verb);
+
+                    ExecuteIntcode(ref splittedInput);
+                    if (splittedInput[0] == soughtOutput) // if proper noun and verb are found return 100 * noun + verb
+                        return 100 * noun + verb;
+                }
+            }
+
+            return -1; // if proper noun and verb are not found return -1
         }
     }
 }
