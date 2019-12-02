@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Day_2
 {
@@ -8,11 +8,12 @@ namespace Day_2
         {
             string input = System.IO.File.ReadAllText("input.txt");
             string[] splittedInput = input.Split(',');
-            splittedInput[1] = Convert.ToString(12);
-            splittedInput[2] = Convert.ToString(2);
+            splittedInput[1] = "12";
+            splittedInput[2] = "2";
 
             ExecuteIntcode(ref splittedInput);
-            Console.WriteLine("Value at positon 0 after execution of Intcode: " + splittedInput[0]); // solution fo the first puzzle
+            Console.WriteLine("Value at positon 0 after execution of Intcode: " + splittedInput[0]); // solution for the first puzzle
+            Console.WriteLine("100 * proper noun + proper verb = " + FindProperInputs(input, "19690720")); // solution the second puzzle
         }
 
         static int Calculate(string opcode, string first, string second)
