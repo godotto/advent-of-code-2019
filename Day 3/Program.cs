@@ -17,7 +17,10 @@ namespace Day_3
             for (var i = 1; i < instruction.Length; i++)
                 numberOfSteps += instruction[i];
 
-            return Convert.ToInt32(numberOfSteps);
+            if (instruction[0] == 'R' || instruction[0] == 'U')
+                return Convert.ToInt32(numberOfSteps);
+            else
+                return -Convert.ToInt32(numberOfSteps);
         }
     }
 }
