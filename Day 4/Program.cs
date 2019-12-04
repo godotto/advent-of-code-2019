@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_4
 {
@@ -25,6 +25,17 @@ namespace Day_4
                     return true;
             
             return false;
+        }
+
+        static int NumberOfValidPasswords(int beginningOfRange, int endOfRange)
+        {
+            var numberOfValidPasswords = 0;
+            
+            for (var password = beginningOfRange; password <= endOfRange; password++)
+                if (IsWithDoubles(Convert.ToString(password)) && !IsDecreasing(Convert.ToString(password)))
+                    numberOfValidPasswords++;
+
+            return numberOfValidPasswords;
         }
     }
 }
