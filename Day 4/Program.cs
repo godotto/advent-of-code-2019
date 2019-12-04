@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Day_4
 {
@@ -15,7 +15,7 @@ namespace Day_4
             for (var i = 0; i < 5; i++)
                 if (password[i] == password[i + 1])
                     return true;
-            
+
             return false;
         }
 
@@ -24,19 +24,32 @@ namespace Day_4
             for (var i = 0; i < 5; i++)
                 if (password[i] > password[i + 1])
                     return true;
-            
+
             return false;
         }
 
         static int NumberOfValidPasswords(int beginningOfRange, int endOfRange)
         {
             var numberOfValidPasswords = 0;
-            
+
             for (var password = beginningOfRange; password <= endOfRange; password++)
                 if (IsWithDouble(Convert.ToString(password)) && !IsDecreasing(Convert.ToString(password)))
                     numberOfValidPasswords++;
 
             return numberOfValidPasswords;
+        }
+
+        static bool ImprovedIsWithDouble(string password)
+        {
+            int[] occurances = new int[10];
+            for (var i = 0; i < 6; i++)
+                occurances[Convert.ToInt32(Char.GetNumericValue(password[i]))]++;
+
+            foreach (var digitOccurance in occurances)
+                if (digitOccurance == 2)
+                    return true;
+
+            return false;
         }
     }
 }
