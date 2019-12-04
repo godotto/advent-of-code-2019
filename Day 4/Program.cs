@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Day_4
 {
@@ -7,7 +7,8 @@ namespace Day_4
         static void Main(string[] args)
         {
             // input values for both puzzles are 168630 and 718098
-            Console.WriteLine("Number of valid passwords from 168630 to 718098: " + NumberOfValidPasswords(168630, 718098));
+            Console.WriteLine("Number of valid passwords from 168630 to 718098: " + NumberOfValidPasswords(168630, 718098)); // solution for 1st puzzle
+            Console.WriteLine("Number of valid passwords for new criteria from 168630 to 718098: " + ImprovedNumberOfValidPasswords(168630, 718098)); // solution for 2nd puzzle
         }
 
         static bool IsWithDouble(string password)
