@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_4
 {
@@ -10,7 +10,7 @@ namespace Day_4
             Console.WriteLine("Number of valid passwords from 168630 to 718098: " + NumberOfValidPasswords(168630, 718098));
         }
 
-        static bool IsWithDoubles(string password)
+        static bool IsWithDouble(string password)
         {
             for (var i = 0; i < 5; i++)
                 if (password[i] == password[i + 1])
@@ -33,7 +33,7 @@ namespace Day_4
             var numberOfValidPasswords = 0;
             
             for (var password = beginningOfRange; password <= endOfRange; password++)
-                if (IsWithDoubles(Convert.ToString(password)) && !IsDecreasing(Convert.ToString(password)))
+                if (IsWithDouble(Convert.ToString(password)) && !IsDecreasing(Convert.ToString(password)))
                     numberOfValidPasswords++;
 
             return numberOfValidPasswords;
