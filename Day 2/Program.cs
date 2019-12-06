@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_2
 {
@@ -21,7 +21,7 @@ namespace Day_2
             if (opcode == "1")
                 return Convert.ToInt32(first) + Convert.ToInt32(second); // if opcode is 1 add values at first and second position
             else
-                return Convert.ToInt32(first) * Convert.ToInt32(second); // if opcode is 1 multiply values at first and second position
+                return Convert.ToInt32(first) * Convert.ToInt32(second); // if opcode is 2 multiply values at first and second position
         }
 
         static void ExecuteIntcode(ref string[] input)
