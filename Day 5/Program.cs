@@ -84,7 +84,10 @@ namespace Day_5
                 else                  // immediate mode
                     right = Convert.ToInt32(second);
 
-                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) < Convert.ToInt32(second)));
+                if (left < right)
+                    input[Convert.ToInt32(third)] = "1";
+                else
+                    input[Convert.ToInt32(third)] = "0";
             }
             else if (opcode[opcode.Length - 1] == '8') // if first == second and store boolean value in positon passed as third parameter
             {
@@ -98,7 +101,10 @@ namespace Day_5
                 else                  // immediate mode
                     right = Convert.ToInt32(second);
 
-                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) == Convert.ToInt32(second)));
+                if (left == right)
+                    input[Convert.ToInt32(third)] = "1";
+                else
+                    input[Convert.ToInt32(third)] = "0";
             }
         }
 
