@@ -58,7 +58,7 @@ namespace Day_5
 
                 input[Convert.ToInt32(third)] = Convert.ToString(left + right);
             }
-            else if(opcode[opcode.Length - 1] == '2') // multiply and store in positon passed as third parameter
+            else if (opcode[opcode.Length - 1] == '2') // multiply and store in positon passed as third parameter
             {
                 if (opcode[opcode.Length - 3] == '0') // position mode
                     left = Convert.ToInt32(input[Convert.ToInt32(first)]);
@@ -72,7 +72,7 @@ namespace Day_5
 
                 input[Convert.ToInt32(third)] = Convert.ToString(left * right);
             }
-            else if(opcode[opcode.Length - 1] == '7') // if first < second and store boolean value in positon passed as third parameter
+            else if (opcode[opcode.Length - 1] == '7') // if first < second and store boolean value in positon passed as third parameter
             {
                 if (opcode[opcode.Length - 3] == '0') // position mode
                     left = Convert.ToInt32(input[Convert.ToInt32(first)]);
@@ -86,7 +86,7 @@ namespace Day_5
 
                 input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) < Convert.ToInt32(second)));
             }
-            else if(opcode[opcode.Length - 1] == '8') // if first == second and store boolean value in positon passed as third parameter
+            else if (opcode[opcode.Length - 1] == '8') // if first == second and store boolean value in positon passed as third parameter
             {
                 if (opcode[opcode.Length - 3] == '0') // position mode
                     left = Convert.ToInt32(input[Convert.ToInt32(first)]);
@@ -99,6 +99,53 @@ namespace Day_5
                     right = Convert.ToInt32(second);
 
                 input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) == Convert.ToInt32(second)));
+            }
+        }
+
+        static void ExecuteTwoParametersOpcode(ref string[] input, string opcode, string first, string second, ref int positionPointer)
+        {
+            int left = Convert.ToInt32(input[Convert.ToInt32(first)]);
+            int right = Convert.ToInt32(input[Convert.ToInt32(second)]);
+
+            if (opcode == "5" && left != 0)
+                positionPointer = right;
+            else if (opcode == "6" && left == 0)
+                positionPointer = right;
+        }
+
+        static void ExecuteTwoParametersOpcodeWithModes(ref string[] input, string opcode, string first, string second, ref int positionPointer)
+        {
+            int left, right;
+
+            if (opcode[opcode.Length - 1] == '5')
+            {
+                if (opcode[opcode.Length - 3] == '0') // position mode
+                    left = Convert.ToInt32(input[Convert.ToInt32(first)]);
+                else                  // immediate mode
+                    left = Convert.ToInt32(first);
+
+                if (opcode.Length == 3 || opcode[0] == '0') // position mode
+                    right = Convert.ToInt32(input[Convert.ToInt32(second)]);
+                else                  // immediate mode
+                    right = Convert.ToInt32(second);
+
+                if (left != 0)
+                    positionPointer = right;
+            }
+            else if (opcode[opcode.Length - 1] == '6')
+            {
+                if (opcode[opcode.Length - 3] == '0') // position mode
+                    left = Convert.ToInt32(input[Convert.ToInt32(first)]);
+                else                  // immediate mode
+                    left = Convert.ToInt32(first);
+
+                if (opcode.Length == 3 || opcode[0] == '0') // position mode
+                    right = Convert.ToInt32(input[Convert.ToInt32(second)]);
+                else                  // immediate mode
+                    right = Convert.ToInt32(second);
+
+                if (left == 0)
+                    positionPointer = right;
             }
         }
 
