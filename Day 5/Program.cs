@@ -16,6 +16,8 @@ namespace Day_5
                 input[Convert.ToInt32(parameter)] = Console.ReadLine();
             else if (opcode == "4")                                     // print value in postion passed as parameter
                 Console.WriteLine(input[Convert.ToInt32(parameter)]);
+            else if (opcode == "104")                                   // print value passed as parameter
+                Console.WriteLine(parameter);
         }
 
         static void ExecuteThreeParametersOpcode(ref string[] input, string opcode, string first, string second, string third)
