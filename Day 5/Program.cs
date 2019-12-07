@@ -35,9 +35,19 @@ namespace Day_5
             else if (opcode == "2")
                 input[Convert.ToInt32(third)] = Convert.ToString(left * right);
             else if (opcode == "7")
-                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) < Convert.ToInt32(second)));
+            {
+                if (left < right)
+                    input[Convert.ToInt32(third)] = "1";
+                else
+                    input[Convert.ToInt32(third)] = "0";
+            }
             else if (opcode == "8")
-                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) == Convert.ToInt32(second)));
+            {
+                if (left == right)
+                    input[Convert.ToInt32(third)] = "1";
+                else
+                    input[Convert.ToInt32(third)] = "0";
+            }
         }
 
         static void ExecuteThreeParametersOpcodeWithModes(ref string[] input, string opcode, string first, string second, string third)
