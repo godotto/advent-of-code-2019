@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_5
 {
@@ -34,6 +34,10 @@ namespace Day_5
                 input[Convert.ToInt32(third)] = Convert.ToString(left + right);
             else if (opcode == "2")
                 input[Convert.ToInt32(third)] = Convert.ToString(left * right);
+            else if (opcode == "7")
+                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) < Convert.ToInt32(second)));
+            else if (opcode == "8")
+                input[Convert.ToInt32(third)] = Convert.ToString(Convert.ToInt32(Convert.ToInt32(first) == Convert.ToInt32(second)));
         }
 
         static void ExecuteThreeParametersOpcodeWithModes(ref string[] input, string opcode, string first, string second, string third)
