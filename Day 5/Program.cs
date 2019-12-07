@@ -184,6 +184,8 @@ namespace Day_5
                         ExecuteOneParameterOpcode(ref input, input[i], input[i + 1]);
                         i += 2;
                     }
+                    else if (input[i] == "5" || input[i] == "6")
+                        ExecuteTwoParametersOpcode(ref input, input[i], input[i + 1], input[i + 2], ref i);
                     else
                     {
                         ExecuteThreeParametersOpcode(ref input, input[i], input[i + 1], input[i + 2], input[i + 3]);
@@ -199,6 +201,8 @@ namespace Day_5
                     }
                     else if (input[i] == "99")
                         return;
+                    else if (input[i][input[i].Length - 1] == '5' || input[i][input[i].Length - 1] == '6')
+                        ExecuteTwoParametersOpcodeWithModes(ref input, input[i], input[i + 1], input[i + 2], ref i);
                     else
                     {
                         ExecuteThreeParametersOpcodeWithModes(ref input, input[i], input[i + 1], input[i + 2], input[i + 3]);
