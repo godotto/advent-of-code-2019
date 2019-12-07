@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_5
 {
@@ -35,7 +35,7 @@ namespace Day_5
         {
             int left, right;
 
-            if (opcode[3] == '1') // add and store in positon passed as third parameter
+            if (opcode[opcode.Length - 1] == '1') // add and store in positon passed as third parameter
             {
                 if (opcode[1] == '0') // positon mode                               
                     left = Convert.ToInt32(input[Convert.ToInt32(first)]);
@@ -49,14 +49,14 @@ namespace Day_5
 
                 input[Convert.ToInt32(third)] = Convert.ToString(left + right);
             }
-            else if (opcode[3] == '2') // multiply and store in positon passed as third parameter
+            else // multiply and store in positon passed as third parameter
             {
-                if (opcode[1] == '0') // position mode
+                if (opcode[opcode.Length - 3] == '0') // position mode
                     left = Convert.ToInt32(input[Convert.ToInt32(first)]);
                 else                  // immediate mode
                     left = Convert.ToInt32(first);
 
-                if (opcode[0] == '0') // position mode
+                if (opcode.Length == 3 || opcode[0] == '0') // position mode
                     right = Convert.ToInt32(input[Convert.ToInt32(second)]);
                 else                  // immediate mode
                     right = Convert.ToInt32(second);
