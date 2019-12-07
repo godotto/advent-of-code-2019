@@ -64,5 +64,42 @@ namespace Day_5
                 input[Convert.ToInt32(third)] = Convert.ToString(left * right);
             }
         }
+
+        static void ExecuteIntcode(string[] input)
+        {
+            var i = 0;
+
+            while (i < input.Length)
+            {
+                if (input[i].Length == 1)
+                {
+                    if (input[i] == "3" || input[i] == "4")
+                    {
+                        ExecuteOneParameterOpcode(ref input, input[i], input[i + 1]);
+                        i += 2;
+                    }
+                    else
+                    {
+                        ExecuteThreeParametersOpcode(ref input, input[i], input[i + 1], input[i + 2], input[i + 3]);
+                        i += 4;
+                    }
+                }
+                else
+                {
+                    if (input[i] == "104")
+                    {
+                        ExecuteOneParameterOpcode(ref input, input[i], input[i + 1]);
+                        i += 2;
+                    }
+                    else if (input[i] == "99")
+                        return;
+                    else
+                    {
+                        ExecuteThreeParametersOpcodeWithModes(ref input, input[i], input[i + 1], input[i + 2], input[i + 3]);
+                        i += 4;
+                    }
+                }
+            }
+        }
     }
 }
