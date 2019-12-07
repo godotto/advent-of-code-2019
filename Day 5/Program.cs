@@ -111,6 +111,8 @@ namespace Day_5
                 positionPointer = right;
             else if (opcode == "6" && left == 0)
                 positionPointer = right;
+            else
+                positionPointer += 3;
         }
 
         static void ExecuteTwoParametersOpcodeWithModes(ref string[] input, string opcode, string first, string second, ref int positionPointer)
