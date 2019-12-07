@@ -30,5 +30,39 @@ namespace Day_5
             else if (opcode == "2")
                 input[Convert.ToInt32(third)] = Convert.ToString(left * right);
         }
+
+        static void ExecuteThreeParametersOpcodeWithModes(ref string[] input, string opcode, string first, string second, string third)
+        {
+            int left, right;
+
+            if (opcode[3] == '1') // add and store in positon passed as third parameter
+            {
+                if (opcode[1] == '0') // positon mode                               
+                    left = Convert.ToInt32(input[Convert.ToInt32(first)]);
+                else                  // immediate mode
+                    left = Convert.ToInt32(first);
+
+                if (opcode[0] == '0') // position mode
+                    right = Convert.ToInt32(input[Convert.ToInt32(second)]);
+                else                  // immediate mode
+                    right = Convert.ToInt32(second);
+
+                input[Convert.ToInt32(third)] = Convert.ToString(left + right);
+            }
+            else if (opcode[3] == '2') // multiply and store in positon passed as third parameter
+            {
+                if (opcode[1] == '0') // position mode
+                    left = Convert.ToInt32(input[Convert.ToInt32(first)]);
+                else                  // immediate mode
+                    left = Convert.ToInt32(first);
+
+                if (opcode[0] == '0') // position mode
+                    right = Convert.ToInt32(input[Convert.ToInt32(second)]);
+                else                  // immediate mode
+                    right = Convert.ToInt32(second);
+
+                input[Convert.ToInt32(third)] = Convert.ToString(left * right);
+            }
+        }
     }
 }
