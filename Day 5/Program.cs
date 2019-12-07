@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Day_5
 {
@@ -131,6 +131,8 @@ namespace Day_5
 
                 if (left != 0)
                     positionPointer = right;
+                else
+                    positionPointer += 3;
             }
             else if (opcode[opcode.Length - 1] == '6')
             {
@@ -146,6 +148,8 @@ namespace Day_5
 
                 if (left == 0)
                     positionPointer = right;
+                else
+                    positionPointer += 3;
             }
         }
 
